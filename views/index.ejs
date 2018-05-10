@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script src="../public/jquery.js" ></script>
+</head>
+<body>
+<h1>index</h1>
+<div id="contain">
+    <% data.forEach(function(item){%>
+    <p><%= item.name %>------<%= item.age %>======<span style="cursor:pointer;" class="del">X</span></p>
+    <%})%>
+</div>
+<div>
+    <ul>
+        <li>
+            <label for="">name:</label>
+            <input id="name" type="text">
+        </li>
+        <li>
+            <label for="">age:</label>
+            <input id="age" type="text">
+        </li>
+    </ul>
+</div>
+<button id="submit">submit</button>
+<!--<form method="post" enctype="multipart/form-data" action="/file-upload">
+    <input type="text" name="username">
+    <input type="password" name="password">
+    <input type="file" name="thumbnail">
+    <input type="submit">
+</form>-->
+<form id='editfile' method='post' action='/upload' enctype='multipart/form-data'>
+    <input name="text" type="text"/>
+    选择图片：<input name="avatar" id='upfile' type='file'/>
+    <input type='submit' value='提交'/>
+</form>
+<script>
+    $(document).ready(function(){
+        $("#submit").click(function(){
+            var todo={name:$("#name").val(),age:$("#age").val()};
+            $.ajax({
+                type:"POST",
+                url:"/todo",
+                data:todo,
+                success:function(data){
+                    console.log(data);
+                    location.reload();
+                }
+            });
+        });
+        $(".del").each(function(index,item){
+            $(item).click(function(){
+                var todo=index;
+                $.ajax({
+                    type:"DELETE",
+                    url:"/todo/"+index,
+                    //data:todo,
+                    success:function(data){
+                        console.log(data);
+                        location.reload();
+                    }
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>
