@@ -1,6 +1,6 @@
 var mongoose=require("mongoose");
 
-mongoose.connect("mongodb://todo:123456@ds217310.mlab.com:17310/todo");
+mongoose.connect("mongodb://<name>:<password>@ds217310.mlab.com:17310/todo");
 // 创建图表
 var todoSchema=new mongoose.Schema({
     name:String,
@@ -8,11 +8,6 @@ var todoSchema=new mongoose.Schema({
 });
 // 往数据库中存储数据
 var Todo=mongoose.model("Todo",todoSchema);
-/*Todo({name:'jingjingjing',age:30}).save(function(err,data){
-    if(err) throw err;
-    console.log("success 11111");
-    console.log(data);
-});*/
 
 var bodyParser=require("body-parser");
 var urlencodeParser=bodyParser.urlencoded({extended:false});
