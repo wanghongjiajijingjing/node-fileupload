@@ -1,0 +1,51 @@
+.content{
+    margin:20px;
+}
+h2{
+    font-weight:bold;
+    font-size:18px;
+}
+.personList{
+    display:inline-block;
+}
+.personItem{
+    border-bottom:1px solid #ddd;
+    padding:10px;
+}
+.personItem span{
+    display:inline-block;
+}
+.personName{
+    width:100px;
+}
+.personAge{
+    width:100px;
+}
+.personDel{
+    cursor:pointer;
+}
+.addPersonList{
+    margin-top:10px;
+}
+.addPersonItem{
+    display:inline-block;
+}
+.addPersonItem label{
+
+}
+.addPersonItem input{
+    padding:3px 10px;
+    width:58px;
+    height:20px;
+    color:#1f2d3d;
+    background-color:#fff;
+    border:1px solid #C0CCDA;
+    border-radius:2px;
+}
+.addPersonItem button{
+    margin-left:10px;
+}
+
+.fileUpload{
+    margin-top:20px;
+}
