@@ -1,10 +1,6 @@
 var express=require("express");
 var app=express();
-//app.use(express.bodyParser({uploadDir:'./uploads'}));
-
-/*app.get("/",function(req,res){
-    res.send("xxn");
-});*/
+ 
 var router=express.Router();
 var upload=require("./fileupload");
 
